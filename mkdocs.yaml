@@ -1,0 +1,3 @@
+site_name: resto_arnaud
+docs_dir: ./docs
+theme: readthedocs
