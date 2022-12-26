@@ -21,6 +21,8 @@ php bin/console d:f:l +YES ou
 
 make sf-fixtures
 
+pour une date: $reservation->setDate(new \DateTime('04/06/2022'));
+
 Pour une ManyToOne se mettre sur l'entité où il y a le id , sur recette pas sur ingrédient attetnio c'est ManyTOMany!!!!!:
 marquer l'attribut au pluriel: ingredients (il est bien sur la table)
 relation

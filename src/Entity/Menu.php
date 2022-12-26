@@ -16,6 +16,9 @@ class Menu
     #[ORM\Column(length: 190)]
     private ?string $title = null;
 
+    #[ORM\ManyToOne(inversedBy: 'menus')]
+    private ?Option $option1 = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -29,6 +32,18 @@ class Menu
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function getOption1(): ?Option
+    {
+        return $this->option1;
+    }
+
+    public function setOption1(?Option $option1): self
+    {
+        $this->option1 = $option1;
 
         return $this;
     }
