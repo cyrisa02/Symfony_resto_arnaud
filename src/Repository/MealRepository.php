@@ -39,6 +39,20 @@ class MealRepository extends ServiceEntityRepository
         }
     }
 
+/**
+    * @return Meal[] Returns an index  of Meal objects sorted by Category
+    */
+    public function sortByCategory()
+    {
+       return $this->createQueryBuilder('m')  
+        ->select('m')
+        ->orderBy('m.category', 'ASC')
+         ->getQuery()
+         ->getResult()
+        ;
+    }
+
+
 //    /**
 //     * @return Meal[] Returns an array of Meal objects
 //     */

@@ -6,10 +6,11 @@ use App\Entity\Meal;
 use App\Form\MealType;
 use App\Service\FileUploader;
 use App\Repository\MealRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\CategoryRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/plat')]
 class MealController extends AbstractController
@@ -19,6 +20,15 @@ class MealController extends AbstractController
     {
         return $this->render('pages/meal/index.html.twig', [
             'meals' => $mealRepository->findAll(),
+        ]);
+    }
+
+    #[Route('/public', name: 'app_mealpublic_index', methods: ['GET'])]
+    public function indexpublic(MealRepository $mealRepository, CategoryRepository $categoryRepository): Response
+    {
+        return $this->render('pages/meal/indexpublic.html.twig', [
+            'meals' => $mealRepository->sortByCategory(),
+            'categories' => $categoryRepository->findAll(),
         ]);
     }
 
