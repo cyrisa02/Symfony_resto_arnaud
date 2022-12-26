@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Plat
+{% endblock %}
+
+{% block body %}
+	<h1>Plat</h1>
+
+	<table class="table">
+		<tbody>
+
+			<tr>
+				<th>Nom</th>
+				<td>{{ meal.title }}</td>
+			</tr>
+			<tr>
+				<th>Description</th>
+				<td>{{ meal.description }}</td>
+			</tr>
+			<tr>
+				<th>Prix</th>
+				<td>{{ meal.price }}</td>
+			</tr>
+			<tr>
+				<th>Image</th>
+				<td>
+					{% if meal.picture is defined %}
+						<img src="{{ asset('uploads/') }}{{ meal.picture }}" alt="{{ meal.title }}" style="max-width: 7rem; height: auto; border-radius: 50%;">
+					{% else %}
+						<p>Pas d'image</p>
+					{% endif %}
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<a class="btn btn-secondary btn-lg mt-4" href="{{ path('app_meal_index') }}">Retour à la liste</a>
+
+
+	<a class="btn btn-primary btn-lg mt-4" href="{{ path('app_meal_edit', {'id': meal.id}) }}">Modifier</a>
+
+
+	{{ include('pages/meal/_delete_form.html.twig') }}
+{% endblock %}
