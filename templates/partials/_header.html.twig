@@ -10,9 +10,9 @@
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="#">Créer une galerie d'images</a>
-						<a class="dropdown-item" href="#">créer une carte de menu avec catégorie</a>
-						<a class="dropdown-item" href="#">créer des menus</a>
+						<a class="dropdown-item" href="{{ path('app_meal_index')}}">Créer un plat</a>
+						<a class="dropdown-item" href="{{ path('app_mealpublic_index')}}">créer une carte de menu avec catégorie</a>
+						<a class="dropdown-item" href="{{path('app_menu_index')}}">créer des menus</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="#">Créer des horaires</a>
 					</div>
@@ -68,6 +68,25 @@
 				<input class="form-control me-sm-2" type="text" placeholder="Search">
 				<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
 			</form>
+			<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+				{% if app.user %}
+					<li class="nav-item">
+						<a class="nav-link" href="#">Mon compte</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_logout') }}">Me déconnecter</a>
+					</li>
+				{% else %}
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_register') }}">M'inscrire</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_login') }}">Me Connecter</a>
+					</li>
+				{% endif %}
+			</ul>
+
+
 		</div>
 	</div>
 </nav>

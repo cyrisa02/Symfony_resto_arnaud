@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle Categorie
+{% endblock %}
+
+{% block body %}
+	<div class="mt-4 container">
+		<h1>Créer une catégorie</h1>
+
+		{{ include('pages/category/_form.html.twig') }}
+
+		<a class="btn btn-secondary btn-lg mt-4" href="{{ path('app_category_index') }}">Retour à la liste</a>
+	</div>
+
+
+{% endblock %}

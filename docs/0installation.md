@@ -98,6 +98,21 @@ git rm -r --cached .
 git add .
 git commit -m ".gitignore est maintenant fonctionnel"
 
-Evite que le gitignore ne focntione pas!!!
+Evite que le gitignore ne fonctione pas!!!
 
 Créer une branche sprint1
+
+## Message Flash dans base.html
+
+<body>
+		{% for message in app.flashes('success') %}
+			<span id="alert" class="alert alert-success d-inline">
+				{{ message }}
+			</span>
+		{% endfor %}
+
+puis dans le contorller et dans la bonne fonction edit ou new
+
+$this->addFlash('success', 'Votre message a été envoyé');
+
+ou voir mailing index + new dans planet body

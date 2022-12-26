@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categorie
+{% endblock %}
+
+{% block body %}
+	<div class="mt-4 container">
+		<h1>Categorie</h1>
+
+		<table class="table">
+			<tbody>
+
+				<tr>
+					<th>Titre</th>
+					<td>{{ category.title }}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<a href="{{ path('app_category_index') }}">Retour à la liste</a>
+
+		<a href="{{ path('app_category_edit', {'id': category.id}) }}">Modifier</a>
+
+		{{ include('pages/category/_delete_form.html.twig') }}</div>
+
+{% endblock %}
