@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier l'horaire du soir
+{% endblock %}
+
+{% block body %}
+	<div class="mt-4 container">
+		<h1>Modifier l'horaire du soir</h1>
+
+		{{ include('pages/scheduleevening/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+		<a href="{{ path('app_scheduleevening_index') }}">back to list</a>
+
+		{{ include('pages/scheduleevening/_delete_form.html.twig') }}</div>
+{% endblock %}
