@@ -22,7 +22,10 @@ class Menu
     #[ORM\ManyToMany(targetEntity: Option::class, inversedBy: 'menus')]
     private Collection $options;
 
-    
+    public function __toString()
+     {
+         return $this->title; 
+    }
 
     public function __construct()
     {

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formule
+{% endblock %}
+
+{% block body %}
+	<div class="mt-4 container">
+		<h1>Formule</h1>
+
+		<table class="table">
+			<tbody>
+
+				<tr>
+					<th>Titre</th>
+					<td>{{ option.title }}</td>
+				</tr>
+				<tr>
+					<th>Prix</th>
+					<td>{{ option.price }}</td>
+				</tr>
+				<tr>
+					<th>Description</th>
+					<td>{{ option.description }}</td>
+				</tr>
+				<tr>
+					<th>Durée</th>
+					<td>{{ option.day }}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<a href="{{ path('app_option_index') }}">back to list</a>
+
+		<a href="{{ path('app_option_edit', {'id': option.id}) }}">edit</a>
+
+		{{ include('pages/option/_delete_form.html.twig') }}</div>
+
+{% endblock %}
