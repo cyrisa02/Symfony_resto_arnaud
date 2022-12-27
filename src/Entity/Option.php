@@ -26,8 +26,10 @@ class Option
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\OneToMany(mappedBy: 'option1', targetEntity: Menu::class)]
+    #[ORM\ManyToMany(targetEntity: Menu::class, mappedBy: 'option1')]
     private Collection $menus;
+
+    
 
     public function __construct()
     {
@@ -90,7 +92,7 @@ class Option
     {
         if (!$this->menus->contains($menu)) {
             $this->menus->add($menu);
-            $menu->setOption1($this);
+            $menu->addOption1($this);
         }
 
         return $this;
@@ -99,12 +101,11 @@ class Option
     public function removeMenu(Menu $menu): self
     {
         if ($this->menus->removeElement($menu)) {
-            // set the owning side to null (unless already changed)
-            if ($menu->getOption1() === $this) {
-                $menu->setOption1(null);
-            }
+            $menu->removeOption1($this);
         }
 
         return $this;
     }
+
+    
 }
