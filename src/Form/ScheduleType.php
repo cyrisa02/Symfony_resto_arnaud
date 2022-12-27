@@ -19,7 +19,7 @@ class ScheduleType extends AbstractType
                     'minlenght' => '2',
                     'maxlenght' => '190',
                 ],
-                'label' => 'Horaire du lundi',
+                'label' => 'Horaire du lundi midi',
                 'label_attr' => [
                     'class' => 'form-label  mt-4'
                 ],
@@ -31,7 +31,7 @@ class ScheduleType extends AbstractType
                     'minlenght' => '2',
                     'maxlenght' => '190',
                 ],
-                'label' => 'Horaire du mardi',
+                'label' => 'Horaire du mardi midi',
                 'label_attr' => [
                     'class' => 'form-label  mt-4'
                 ],
@@ -43,7 +43,7 @@ class ScheduleType extends AbstractType
                     'minlenght' => '2',
                     'maxlenght' => '190',
                 ],
-                'label' => 'Horaire du mercredi',
+                'label' => 'Horaire du mercredi midi',
                 'label_attr' => [
                     'class' => 'form-label  mt-4'
                 ],
@@ -55,7 +55,7 @@ class ScheduleType extends AbstractType
                     'minlenght' => '2',
                     'maxlenght' => '190',
                 ],
-                'label' => 'Horaire du jeudi',
+                'label' => 'Horaire du jeudi midi',
                 'label_attr' => [
                     'class' => 'form-label  mt-4'
                 ],
@@ -67,7 +67,7 @@ class ScheduleType extends AbstractType
                     'minlenght' => '2',
                     'maxlenght' => '190',
                 ],
-                'label' => 'Horaire du vendredi',
+                'label' => 'Horaire du vendredi midi',
                 'label_attr' => [
                     'class' => 'form-label  mt-4'
                 ],
@@ -79,7 +79,7 @@ class ScheduleType extends AbstractType
                     'minlenght' => '2',
                     'maxlenght' => '190',
                 ],
-                'label' => 'Horaire du samedi',
+                'label' => 'Horaire du samedi midi',
                 'label_attr' => [
                     'class' => 'form-label  mt-4'
                 ],
@@ -91,7 +91,91 @@ class ScheduleType extends AbstractType
                     'minlenght' => '2',
                     'maxlenght' => '190',
                 ],
-                'label' => 'Horaire du dimanche',
+                'label' => 'Horaire du dimanche midi',
+                'label_attr' => [
+                    'class' => 'form-label  mt-4'
+                ],
+                
+            ])
+            ->add('evmonday', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control',
+                    'minlenght' => '2',
+                    'maxlenght' => '190',
+                ],
+                'label' => 'Horaire du lundi soir',
+                'label_attr' => [
+                    'class' => 'form-label  mt-4'
+                ],
+                
+            ])
+            ->add('evtuesday', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control',
+                    'minlenght' => '2',
+                    'maxlenght' => '190',
+                ],
+                'label' => 'Horaire du mardi soir',
+                'label_attr' => [
+                    'class' => 'form-label  mt-4'
+                ],
+                
+            ])
+            ->add('evwednesday', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control',
+                    'minlenght' => '2',
+                    'maxlenght' => '190',
+                ],
+                'label' => 'Horaire du mercredi soir',
+                'label_attr' => [
+                    'class' => 'form-label  mt-4'
+                ],
+                
+            ])
+            ->add('evthursday', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control',
+                    'minlenght' => '2',
+                    'maxlenght' => '190',
+                ],
+                'label' => 'Horaire du jeudi soir',
+                'label_attr' => [
+                    'class' => 'form-label  mt-4'
+                ],
+                
+            ])
+            ->add('evfriday', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control',
+                    'minlenght' => '2',
+                    'maxlenght' => '190',
+                ],
+                'label' => 'Horaire du vendredi soir',
+                'label_attr' => [
+                    'class' => 'form-label  mt-4'
+                ],
+                
+            ])
+            ->add('evsaturday', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control',
+                    'minlenght' => '2',
+                    'maxlenght' => '190',
+                ],
+                'label' => 'Horaire du samedi soir',
+                'label_attr' => [
+                    'class' => 'form-label  mt-4'
+                ],
+                
+            ])
+            ->add('evsunday', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control',
+                    'minlenght' => '2',
+                    'maxlenght' => '190',
+                ],
+                'label' => 'Horaire du dimanche soir',
                 'label_attr' => [
                     'class' => 'form-label  mt-4'
                 ],

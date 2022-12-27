@@ -35,6 +35,27 @@ class Schedule
     #[ORM\Column(length: 190, nullable: true)]
     private ?string $sunday = null;
 
+    #[ORM\Column(length: 190, nullable: true)]
+    private ?string $evmonday = null;
+
+    #[ORM\Column(length: 190, nullable: true)]
+    private ?string $evtuesday = null;
+
+    #[ORM\Column(length: 190, nullable: true)]
+    private ?string $evwednesday = null;
+
+    #[ORM\Column(length: 190, nullable: true)]
+    private ?string $evthursday = null;
+
+    #[ORM\Column(length: 190, nullable: true)]
+    private ?string $evfriday = null;
+
+    #[ORM\Column(length: 190, nullable: true)]
+    private ?string $evsaturday = null;
+
+    #[ORM\Column(length: 190, nullable: true)]
+    private ?string $evsunday = null;
+
     
     public function getId(): ?int
     {
@@ -123,6 +144,90 @@ class Schedule
     public function setSunday(?string $sunday): self
     {
         $this->sunday = $sunday;
+
+        return $this;
+    }
+
+    public function getEvmonday(): ?string
+    {
+        return $this->evmonday;
+    }
+
+    public function setEvmonday(?string $evmonday): self
+    {
+        $this->evmonday = $evmonday;
+
+        return $this;
+    }
+
+    public function getEvtuesday(): ?string
+    {
+        return $this->evtuesday;
+    }
+
+    public function setEvtuesday(?string $evtuesday): self
+    {
+        $this->evtuesday = $evtuesday;
+
+        return $this;
+    }
+
+    public function getEvwednesday(): ?string
+    {
+        return $this->evwednesday;
+    }
+
+    public function setEvwednesday(?string $evwednesday): self
+    {
+        $this->evwednesday = $evwednesday;
+
+        return $this;
+    }
+
+    public function getEvthursday(): ?string
+    {
+        return $this->evthursday;
+    }
+
+    public function setEvthursday(string $evthursday): self
+    {
+        $this->evthursday = $evthursday;
+
+        return $this;
+    }
+
+    public function getEvfriday(): ?string
+    {
+        return $this->evfriday;
+    }
+
+    public function setEvfriday(?string $evfriday): self
+    {
+        $this->evfriday = $evfriday;
+
+        return $this;
+    }
+
+    public function getEvsaturday(): ?string
+    {
+        return $this->evsaturday;
+    }
+
+    public function setEvsaturday(?string $evsaturday): self
+    {
+        $this->evsaturday = $evsaturday;
+
+        return $this;
+    }
+
+    public function getEvsunday(): ?string
+    {
+        return $this->evsunday;
+    }
+
+    public function setEvsunday(?string $evsunday): self
+    {
+        $this->evsunday = $evsunday;
 
         return $this;
     }
