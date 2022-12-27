@@ -4,11 +4,12 @@ namespace App\Controller;
 
 use App\Entity\Reservation;
 use App\Form\ReservationType;
+use App\Repository\ScheduleRepository;
 use App\Repository\ReservationRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/reservation')]
 class ReservationController extends AbstractController
@@ -22,7 +23,7 @@ class ReservationController extends AbstractController
     }
 
     #[Route('/creer', name: 'app_reservation_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, ReservationRepository $reservationRepository): Response
+    public function new(Request $request, ReservationRepository $reservationRepository, ScheduleRepository $scheduleRepository): Response
     {
         $reservation = new Reservation();
         $form = $this->createForm(ReservationType::class, $reservation);
@@ -37,6 +38,7 @@ class ReservationController extends AbstractController
         return $this->renderForm('pages/reservation/new.html.twig', [
             'reservation' => $reservation,
             'form' => $form,
+            'schedules'=>$scheduleRepository->findAll(),
         ]);
     }
 

@@ -6,10 +6,11 @@ use App\Entity\Menu;
 use App\Form\MenuType;
 use App\Repository\MenuRepository;
 use App\Repository\OptionRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\ScheduleRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/menu')]
 class MenuController extends AbstractController
@@ -23,11 +24,11 @@ class MenuController extends AbstractController
     }
 
      #[Route('/formule', name: 'app_menuformule_index', methods: ['GET'])]
-    public function indexformule(MenuRepository $menuRepository): Response
+    public function indexformule(MenuRepository $menuRepository, ScheduleRepository $scheduleRepository): Response
     {
         return $this->render('pages/menu/indexformule.html.twig', [
             'menus' => $menuRepository->findAll(),
-            
+            'schedules'=>$scheduleRepository->findAll(),
         ]);
     }
 
