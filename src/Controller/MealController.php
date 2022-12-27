@@ -96,6 +96,15 @@ class MealController extends AbstractController
     public function delete(Request $request, Meal $meal, MealRepository $mealRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$meal->getId(), $request->request->get('_token'))) {
+            $picture = $meal->getPicture();
+            if($picture){
+                $nomImage= $this->getParameter("uploads_directory") . '/' .$picture;
+                //dd($nomImage);
+                //we check if the picture exists
+                if(file_exists($nomImage)){
+                    unlink($nomImage);
+                }
+            }
             $mealRepository->remove($meal, true);
         }
 

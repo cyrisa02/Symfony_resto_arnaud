@@ -92,3 +92,28 @@ new File([
                 ],
 
             ])
+
+---
+
+## Suppression d'images
+
+https://www.youtube.com/watch?v=jrca6I-sBNM
+
+#[Route('/{id}', name: 'app_meal_delete', methods: ['POST'])]
+public function delete(Request $request, Meal $meal, MealRepository $mealRepository): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$meal->getId(), $request->request->get('_token'))) {
+            $picture = $meal->getPicture();
+            if($picture){
+$nomImage= $this->getParameter("uploads_directory") . '/' .$picture;
+//dd($nomImage);
+                //we check if the picture exists
+                if(file_exists($nomImage)){
+unlink($nomImage);
+                }
+            }
+            $mealRepository->remove($meal, true);
+}
+
+        return $this->redirectToRoute('app_meal_index', [], Response::HTTP_SEE_OTHER);
+    }
