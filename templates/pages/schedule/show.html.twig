@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Horaire
+{% endblock %}
+
+{% block body %}
+	<div class="mt-4 container">
+		<h1>Horaire</h1>
+
+		<table class="table">
+			<tbody>
+
+				<tr>
+					<th>Lundi</th>
+					<td>{{ schedule.monday }}</td>
+				</tr>
+				<tr>
+					<th>Mardi</th>
+					<td>{{ schedule.tuesday }}</td>
+				</tr>
+				<tr>
+					<th>Mercredi</th>
+					<td>{{ schedule.wednesday }}</td>
+				</tr>
+				<tr>
+					<th>Jeudi</th>
+					<td>{{ schedule.thursday }}</td>
+				</tr>
+				<tr>
+					<th>Vendredi</th>
+					<td>{{ schedule.friday }}</td>
+				</tr>
+				<tr>
+					<th>Samedi</th>
+					<td>{{ schedule.saturday }}</td>
+				</tr>
+				<tr>
+					<th>Dimanche</th>
+					<td>{{ schedule.sunday }}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<a class="btn btn-secondary btn-lg mt-4" href="{{ path('app_schedule_index') }}">Retour à la liste</a>
+
+
+		<a class="btn btn-primary btn-lg mt-4" href="{{ path('app_schedule_edit', {'id': schedule.id}) }}">Modifier</a>
+
+
+		{{ include('pages/schedule/_delete_form.html.twig') }}</div>
+
+{% endblock %}

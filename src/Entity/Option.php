@@ -26,8 +26,13 @@ class Option
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\ManyToMany(targetEntity: Menu::class, mappedBy: 'option1')]
+    #[ORM\ManyToMany(targetEntity: Menu::class, mappedBy: 'options')]
     private Collection $menus;
+
+    #[ORM\Column(length: 190, nullable: true)]
+    private ?string $day = null;
+
+    
 
     
 
@@ -92,7 +97,7 @@ class Option
     {
         if (!$this->menus->contains($menu)) {
             $this->menus->add($menu);
-            $menu->addOption1($this);
+            $menu->addOption($this);
         }
 
         return $this;
@@ -101,11 +106,25 @@ class Option
     public function removeMenu(Menu $menu): self
     {
         if ($this->menus->removeElement($menu)) {
-            $menu->removeOption1($this);
+            $menu->removeOption($this);
         }
 
         return $this;
     }
+
+    public function getDay(): ?string
+    {
+        return $this->day;
+    }
+
+    public function setDay(?string $day): self
+    {
+        $this->day = $day;
+
+        return $this;
+    }
+
+   
 
     
 }

@@ -13,29 +13,48 @@ class Schedule
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?bool $isMonday = null;
-
-    #[ORM\Column(nullable: true)]
-    private ?bool $isTuesday = null;
-
-    #[ORM\Column(nullable: true)]
-    private ?bool $isWednesday = null;
-
-    #[ORM\Column(nullable: true)]
-    private ?bool $isThursday = null;
-
-    #[ORM\Column(nullable: true)]
-    private ?bool $isFriday = null;
-
-    #[ORM\Column(nullable: true)]
-    private ?bool $isSaturday = null;
-
-    #[ORM\Column(nullable: true)]
-    private ?bool $isSunday = null;
 
     #[ORM\Column(length: 190, nullable: true)]
-    private ?string $time = null;
+    private ?string $monday = null;
+
+    #[ORM\Column(length: 190, nullable: true)]
+    private ?string $tuesday = null;
+
+    #[ORM\Column(length: 190, nullable: true)]
+    private ?string $wednesday = null;
+
+    #[ORM\Column(length: 190, nullable: true)]
+    private ?string $thursday = null;
+
+    #[ORM\Column(length: 190, nullable: true)]
+    private ?string $friday = null;
+
+    #[ORM\Column(length: 190, nullable: true)]
+    private ?string $saturday = null;
+
+    #[ORM\Column(length: 190, nullable: true)]
+    private ?string $sunday = null;
+
+    #[ORM\Column(length: 190, nullable: true)]
+    private ?string $evmonday = null;
+
+    #[ORM\Column(length: 190, nullable: true)]
+    private ?string $evtuesday = null;
+
+    #[ORM\Column(length: 190, nullable: true)]
+    private ?string $evwednesday = null;
+
+    #[ORM\Column(length: 190, nullable: true)]
+    private ?string $evthursday = null;
+
+    #[ORM\Column(length: 190, nullable: true)]
+    private ?string $evfriday = null;
+
+    #[ORM\Column(length: 190, nullable: true)]
+    private ?string $evsaturday = null;
+
+    #[ORM\Column(length: 190, nullable: true)]
+    private ?string $evsunday = null;
 
     
     public function getId(): ?int
@@ -43,98 +62,172 @@ class Schedule
         return $this->id;
     }
 
-    public function isIsMonday(): ?bool
+    
+
+    public function getMonday(): ?string
     {
-        return $this->isMonday;
+        return $this->monday;
     }
 
-    public function setIsMonday(?bool $isMonday): self
+    public function setMonday(?string $monday): self
     {
-        $this->isMonday = $isMonday;
+        $this->monday = $monday;
 
         return $this;
     }
 
-    public function isIsTuesday(): ?bool
+    public function getTuesday(): ?string
     {
-        return $this->isTuesday;
+        return $this->tuesday;
     }
 
-    public function setIsTuesday(?bool $isTuesday): self
+    public function setTuesday(?string $tuesday): self
     {
-        $this->isTuesday = $isTuesday;
+        $this->tuesday = $tuesday;
 
         return $this;
     }
 
-    public function isIsWednesday(): ?bool
+    public function getWednesday(): ?string
     {
-        return $this->isWednesday;
+        return $this->wednesday;
     }
 
-    public function setIsWednesday(?bool $isWednesday): self
+    public function setWednesday(?string $wednesday): self
     {
-        $this->isWednesday = $isWednesday;
+        $this->wednesday = $wednesday;
 
         return $this;
     }
 
-    public function isIsThursday(): ?bool
+    public function getThursday(): ?string
     {
-        return $this->isThursday;
+        return $this->thursday;
     }
 
-    public function setIsThursday(?bool $isThursday): self
+    public function setThursday(?string $thursday): self
     {
-        $this->isThursday = $isThursday;
+        $this->thursday = $thursday;
 
         return $this;
     }
 
-    public function isIsFriday(): ?bool
+    public function getFriday(): ?string
     {
-        return $this->isFriday;
+        return $this->friday;
     }
 
-    public function setIsFriday(?bool $isFriday): self
+    public function setFriday(?string $friday): self
     {
-        $this->isFriday = $isFriday;
+        $this->friday = $friday;
 
         return $this;
     }
 
-    public function isIsSaturday(): ?bool
+    public function getSaturday(): ?string
     {
-        return $this->isSaturday;
+        return $this->saturday;
     }
 
-    public function setIsSaturday(?bool $isSaturday): self
+    public function setSaturday(?string $saturday): self
     {
-        $this->isSaturday = $isSaturday;
+        $this->saturday = $saturday;
 
         return $this;
     }
 
-    public function isIsSunday(): ?bool
+    public function getSunday(): ?string
     {
-        return $this->isSunday;
+        return $this->sunday;
     }
 
-    public function setIsSunday(?bool $isSunday): self
+    public function setSunday(?string $sunday): self
     {
-        $this->isSunday = $isSunday;
+        $this->sunday = $sunday;
 
         return $this;
     }
 
-    public function getTime(): ?string
+    public function getEvmonday(): ?string
     {
-        return $this->time;
+        return $this->evmonday;
     }
 
-    public function setTime(?string $time): self
+    public function setEvmonday(?string $evmonday): self
     {
-        $this->time = $time;
+        $this->evmonday = $evmonday;
+
+        return $this;
+    }
+
+    public function getEvtuesday(): ?string
+    {
+        return $this->evtuesday;
+    }
+
+    public function setEvtuesday(?string $evtuesday): self
+    {
+        $this->evtuesday = $evtuesday;
+
+        return $this;
+    }
+
+    public function getEvwednesday(): ?string
+    {
+        return $this->evwednesday;
+    }
+
+    public function setEvwednesday(?string $evwednesday): self
+    {
+        $this->evwednesday = $evwednesday;
+
+        return $this;
+    }
+
+    public function getEvthursday(): ?string
+    {
+        return $this->evthursday;
+    }
+
+    public function setEvthursday(string $evthursday): self
+    {
+        $this->evthursday = $evthursday;
+
+        return $this;
+    }
+
+    public function getEvfriday(): ?string
+    {
+        return $this->evfriday;
+    }
+
+    public function setEvfriday(?string $evfriday): self
+    {
+        $this->evfriday = $evfriday;
+
+        return $this;
+    }
+
+    public function getEvsaturday(): ?string
+    {
+        return $this->evsaturday;
+    }
+
+    public function setEvsaturday(?string $evsaturday): self
+    {
+        $this->evsaturday = $evsaturday;
+
+        return $this;
+    }
+
+    public function getEvsunday(): ?string
+    {
+        return $this->evsunday;
+    }
+
+    public function setEvsunday(?string $evsunday): self
+    {
+        $this->evsunday = $evsunday;
 
         return $this;
     }

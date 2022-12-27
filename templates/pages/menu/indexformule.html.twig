@@ -6,37 +6,108 @@
 {% block body %}
 	<h1>Liste des Menus</h1>
 
-	<table class="table">
+	{% for menu in menus %}
+		<div class="container">
+			<h2 class="text-center mt-4 text-decoration-underline">{{ menu.title }}</h2>
+
+			{% for option in menu.options %}
+
+				<h3 class="text-center">{{ option.title }}</h3>
+
+				<h4 class="text-center">{{ option.day }}</h4>
+
+				<p class="text-center">{{ option.description }}
+
+
+					/
+
+					{{ option.price }}</p>
+
+
+			{% endfor %}
+			<hr class="m-4">
+		</div>
+	{% endfor %}
+
+	<div class="text-center">
+		<a href="{{ path ('app_reservation_new') }}" class="btn btn-primary mt-4">Réserver une table</a>
+
+	</div>
+</div>
+<div class="mt-4 container">
+	<h1 class="text-center">Nos</h1>
+	<h1 class="text-center">Horaires d'ouverture</h1>
+
+	<hr>
+	<table class="table text-center">
+
 		<thead>
 			<tr>
-
-				<th>Titre</th>
-				<th>actions</th>
+				<th></th>
+				<th></th>
 			</tr>
 		</thead>
+
 		<tbody>
-			{% for menu in menus %}
+			{% for schedule in schedules %}
 				<tr>
-
-					<td>{{ menu.title }}</td>
-					<td>
-
-						{% for option1 in menus.option1s %}
-							{{ option1.id }}
-							/
-
-						{% endfor %}
-					</td>
-
-
+					<td>Lundi</td>
+					<td>{{ schedule.monday }}</td>
 				</tr>
-			{% else %}
 				<tr>
-					<td colspan="3">Pas de menus</td>
+					<td></td>
+					<td>{{ schedule.evmonday }}</td>
+				</tr>
+				<tr>
+					<td>Mardi</td>
+					<td>{{ schedule.tuesday }}</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>{{ schedule.evtuesday }}</td>
+				</tr>
+				<tr>
+					<td>Mercredi</td>
+					<td>{{ schedule.wednesday }}</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>{{ schedule.evwednesday }}</td>
+				</tr>
+				<tr>
+					<td>Jeudi</td>
+					<td>{{ schedule.thursday }}</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>{{ schedule.evthursday }}</td>
+				</tr>
+				<tr>
+					<td>Vendredi</td>
+					<td>{{ schedule.friday }}</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>{{ schedule.evfriday }}</td>
+				</tr>
+				<tr>
+					<td>Samedi</td>
+					<td>{{ schedule.saturday }}</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>{{ schedule.evsaturday }}</td>
+				</tr>
+				<tr>
+					<td>Dimanche</td>
+					<td>{{ schedule.sunday }}</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>{{ schedule.evsunday }}</td>
 				</tr>
 			{% endfor %}
+
 		</tbody>
 	</table>
-
-	<a href="{{ path('app_menu_new') }}">Créer un nouveau menu</a>
-{% endblock %}
+</div>{% endblock %}

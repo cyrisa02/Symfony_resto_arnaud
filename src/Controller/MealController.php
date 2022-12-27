@@ -7,6 +7,7 @@ use App\Form\MealType;
 use App\Service\FileUploader;
 use App\Repository\MealRepository;
 use App\Repository\CategoryRepository;
+use App\Repository\ScheduleRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -24,11 +25,12 @@ class MealController extends AbstractController
     }
 
     #[Route('/public', name: 'app_mealpublic_index', methods: ['GET'])]
-    public function indexpublic(MealRepository $mealRepository, CategoryRepository $categoryRepository): Response
+    public function indexpublic(MealRepository $mealRepository, CategoryRepository $categoryRepository, ScheduleRepository $scheduleRepository): Response
     {
         return $this->render('pages/meal/indexpublic.html.twig', [
             'meals' => $mealRepository->sortByCategory(),
             'categories' => $categoryRepository->findAll(),
+            'schedules'=>$scheduleRepository->findAll(),
         ]);
     }
 

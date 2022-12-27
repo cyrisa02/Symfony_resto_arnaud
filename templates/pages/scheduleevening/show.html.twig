@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Horaires du soir
+{% endblock %}
+
+{% block body %}
+	<div class="mt-4 container">
+		<h1>Horaires du soir</h1>
+
+		<table class="table">
+			<tbody>
+
+				<tr>
+					<th>Lundi</th>
+					<td>{{ scheduleevening.monday }}</td>
+				</tr>
+				<tr>
+					<th>Mardi</th>
+					<td>{{ scheduleevening.tuesday }}</td>
+				</tr>
+				<tr>
+					<th>Mercredi</th>
+					<td>{{ scheduleevening.wednesday }}</td>
+				</tr>
+				<tr>
+					<th>Jeudi</th>
+					<td>{{ scheduleevening.thursday }}</td>
+				</tr>
+				<tr>
+					<th>Vendredi</th>
+					<td>{{ scheduleevening.friday }}</td>
+				</tr>
+				<tr>
+					<th>Samedi</th>
+					<td>{{ scheduleevening.saturday }}</td>
+				</tr>
+				<tr>
+					<th>Diamanche</th>
+					<td>{{ scheduleevening.sunday }}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<a class="btn btn-secondary btn-lg mt-4" href="{{ path('app_scheduleevening_index') }}">Retour à la liste</a>
+
+
+		<a class="btn btn-primary btn-lg mt-4" href="{{ path('app_scheduleevening_edit', {'id': scheduleevening.id}) }}">modifier</a>
+
+
+		{{ include('pages/scheduleevening/_delete_form.html.twig') }}</div>
+
+{% endblock %}

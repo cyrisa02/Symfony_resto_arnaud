@@ -1,47 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Carte
+{% block title %}Nouvelle Réservation
 {% endblock %}
 
 {% block body %}
 	<div class="mt-4 container">
-		<h1>Carte</h1>
+		<h1>Créer une nouvelle Réservation</h1>
 
-		<table class="table">
-			<thead>
-				<tr>
+		{{ include('pages/reservation/_form.html.twig') }}
 
-					<th>Nom</th>
-					<th>Description</th>
-					<th>Categorie</th>
-					<th>Prix</th>
-
-				</tr>
-			</thead>
-			<tbody>
-				{% for meal in meals %}
-					<tr>
-
-						<td>{{ meal.title }}</td>
-						<td>{{ meal.description }}</td>
-						<td>{{ meal.category.title }}</td>
-						<td>{{ meal.price }}
-							€</td>
-
-					</tr>
-				{% else %}
-					<tr>
-						<td colspan="6">Pas de plats</td>
-					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
-	</div>
-
-	<div class="text-center">
-		<a href="{{ path ('app_reservation_new') }}" class="btn btn-primary mt-4">Réserver une table</a>
 
 	</div>
+
 </div>
 <div class="mt-4 container">
 	<h1 class="text-center">Nos</h1>

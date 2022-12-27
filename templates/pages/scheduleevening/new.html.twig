@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvel horaire
+{% endblock %}
+
+{% block body %}
+	<div class="mt-4 container">
+		<h1>Nouvel horaire du soir</h1>
+
+		{{ include('pages/scheduleevening/_form.html.twig') }}
+
+		<a class="btn btn-secondary btn-lg mt-4" href="{{ path('app_scheduleevening_index') }}">Retour à la liste</a>
+
+	</div>
+{% endblock %}
