@@ -20,11 +20,13 @@ class Menu
     private ?string $title = null;
 
     #[ORM\ManyToMany(targetEntity: Option::class, inversedBy: 'menus')]
-    private Collection $option1;
+    private Collection $options;
+
+    
 
     public function __construct()
     {
-        $this->option1 = new ArrayCollection();
+        $this->options = new ArrayCollection();
     }
 
     
@@ -49,26 +51,28 @@ class Menu
     /**
      * @return Collection<int, Option>
      */
-    public function getOption1(): Collection
+    public function getOptions(): Collection
     {
-        return $this->option1;
+        return $this->options;
     }
 
-    public function addOption1(Option $option1): self
+    public function addOption(Option $option): self
     {
-        if (!$this->option1->contains($option1)) {
-            $this->option1->add($option1);
+        if (!$this->options->contains($option)) {
+            $this->options->add($option);
         }
 
         return $this;
     }
 
-    public function removeOption1(Option $option1): self
+    public function removeOption(Option $option): self
     {
-        $this->option1->removeElement($option1);
+        $this->options->removeElement($option);
 
         return $this;
     }
+
+    
 
     
 }

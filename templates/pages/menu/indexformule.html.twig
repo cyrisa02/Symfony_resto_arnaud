@@ -6,37 +6,27 @@
 {% block body %}
 	<h1>Liste des Menus</h1>
 
-	<table class="table">
-		<thead>
-			<tr>
+	{% for menu in menus %}
+		<div class="container">
+			<h2 class="text-center mt-4 text-decoration-underline">{{ menu.title }}</h2>
 
-				<th>Titre</th>
-				<th>actions</th>
-			</tr>
-		</thead>
-		<tbody>
-			{% for menu in menus %}
-				<tr>
+			{% for option in menu.options %}
 
-					<td>{{ menu.title }}</td>
-					<td>
+				<h3 class="text-center">{{ option.title }}</h3>
 
-						{% for option1 in menus.option1s %}
-							{{ option1.id }}
-							/
+				<h4 class="text-center">{{ option.day }}</h4>
 
-						{% endfor %}
-					</td>
+				<p class="text-center">{{ option.description }}
 
 
-				</tr>
-			{% else %}
-				<tr>
-					<td colspan="3">Pas de menus</td>
-				</tr>
+					/
+
+					{{ option.price }}</p>
+
+
 			{% endfor %}
-		</tbody>
-	</table>
+			<hr>
+		</div>
+	{% endfor %}
 
-	<a href="{{ path('app_menu_new') }}">Créer un nouveau menu</a>
 {% endblock %}
