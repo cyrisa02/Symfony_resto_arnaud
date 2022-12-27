@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Menu;
 use App\Form\MenuType;
 use App\Repository\MenuRepository;
+use App\Repository\OptionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,6 +19,15 @@ class MenuController extends AbstractController
     {
         return $this->render('pages/menu/index.html.twig', [
             'menus' => $menuRepository->findAll(),
+        ]);
+    }
+
+     #[Route('/formule', name: 'app_menuformule_index', methods: ['GET'])]
+    public function indexformule(MenuRepository $menuRepository): Response
+    {
+        return $this->render('pages/menu/indexformule.html.twig', [
+            'menus' => $menuRepository->findAll(),
+            
         ]);
     }
 

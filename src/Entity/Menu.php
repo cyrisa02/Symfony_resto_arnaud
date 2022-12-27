@@ -2,8 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\MenuRepository;
+use App\Entity\Option;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\MenuRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 #[ORM\Entity(repositoryClass: MenuRepository::class)]
 class Menu
@@ -16,8 +19,15 @@ class Menu
     #[ORM\Column(length: 190)]
     private ?string $title = null;
 
-    #[ORM\ManyToOne(inversedBy: 'menus')]
-    private ?Option $option1 = null;
+    #[ORM\ManyToMany(targetEntity: Option::class, inversedBy: 'menus')]
+    private Collection $option1;
+
+    public function __construct()
+    {
+        $this->option1 = new ArrayCollection();
+    }
+
+    
 
     public function getId(): ?int
     {
@@ -36,15 +46,29 @@ class Menu
         return $this;
     }
 
-    public function getOption1(): ?Option
+    /**
+     * @return Collection<int, Option>
+     */
+    public function getOption1(): Collection
     {
         return $this->option1;
     }
 
-    public function setOption1(?Option $option1): self
+    public function addOption1(Option $option1): self
     {
-        $this->option1 = $option1;
+        if (!$this->option1->contains($option1)) {
+            $this->option1->add($option1);
+        }
 
         return $this;
     }
+
+    public function removeOption1(Option $option1): self
+    {
+        $this->option1->removeElement($option1);
+
+        return $this;
+    }
+
+    
 }

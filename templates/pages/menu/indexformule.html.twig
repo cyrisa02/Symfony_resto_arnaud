@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Menus
+{% endblock %}
+
+{% block body %}
+	<h1>Liste des Menus</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+
+				<th>Titre</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for menu in menus %}
+				<tr>
+
+					<td>{{ menu.title }}</td>
+					<td>
+
+						{% for option1 in menus.option1s %}
+							{{ option1.id }}
+							/
+
+						{% endfor %}
+					</td>
+
+
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="3">Pas de menus</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_menu_new') }}">Créer un nouveau menu</a>
+{% endblock %}
