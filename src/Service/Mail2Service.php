@@ -5,7 +5,7 @@ namespace App\Service;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\MailerInterface;
 
-class MailService2
+class Mail2Service
 {
     /**
      * @var MailerInterface
@@ -18,7 +18,7 @@ class MailService2
     }
 
     public function sendEmail(
-        string $from = 'atelier.cabriolet@gmail.com',        
+        string $from ,        
         string $htmlTemplate,
         array $context,        
         string $to = 'cyril.gourdon.02@gmail.com',        

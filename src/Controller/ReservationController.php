@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Reservation;
-use App\Service\MailService2;
+use App\Service\Mail2Service;
 use App\Form\ReservationType;
 use App\Repository\ScheduleRepository;
 use App\Repository\ReservationRepository;
@@ -24,7 +24,7 @@ class ReservationController extends AbstractController
     }
 
     #[Route('/creer', name: 'app_reservation_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, ReservationRepository $reservationRepository, ScheduleRepository $scheduleRepository, MailService2 $mailService2): Response
+    public function new(Request $request, ReservationRepository $reservationRepository, ScheduleRepository $scheduleRepository, Mail2Service $mailService2): Response
     {
         $reservation = new Reservation();
         $form = $this->createForm(ReservationType::class, $reservation);
