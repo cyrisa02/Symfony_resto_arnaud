@@ -25,6 +25,7 @@ class Category
     {
         $this->meals = new ArrayCollection();
     }
+    
     public function __toString()
      {
          return $this->title; 
