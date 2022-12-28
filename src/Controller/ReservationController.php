@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Reservation;
+use App\Service\MailService2;
 use App\Form\ReservationType;
 use App\Repository\ScheduleRepository;
 use App\Repository\ReservationRepository;
@@ -23,7 +24,7 @@ class ReservationController extends AbstractController
     }
 
     #[Route('/creer', name: 'app_reservation_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, ReservationRepository $reservationRepository, ScheduleRepository $scheduleRepository): Response
+    public function new(Request $request, ReservationRepository $reservationRepository, ScheduleRepository $scheduleRepository, MailService2 $mailService2): Response
     {
         $reservation = new Reservation();
         $form = $this->createForm(ReservationType::class, $reservation);
@@ -31,6 +32,12 @@ class ReservationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $reservationRepository->save($reservation, true);
+            // Email J'ai injecté le MailService $mailService
+            $mailService2->sendEmail(
+                $reservation->getEmail(),
+                'emails/reservationvisitor.html.twig',
+                ['reservation'=>$reservation]
+            );
 
             return $this->redirectToRoute('home.index', [], Response::HTTP_SEE_OTHER);
         }

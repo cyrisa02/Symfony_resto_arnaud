@@ -8,21 +8,25 @@
 
 		<h2></h2>
 		<h3>
+
 			{{ user.firstname }}
 			{{ user.lastname }}
 			a réservé le
-															
-															pour
-									
-									à
+			{{ user.date ? user.date|date('d-m-Y') : '' }}
+			pour
+			{{ user.clientNumber }}
+			personnes
+			
+																																	
+												à
+			{{ user.time }}
 
 
 		</h3>
-		<p>Allergie:
-		</p>
+		<p>Allergie:{{ user.isAllergy ? 'Oui' : 'Non' }}</p>
+
 		<p>Téléphone:
 			{{ user.phone }}</p>
-
 		<p>Cordialement</p>
 		<p>Le Quai Antique</p>
 	</body>
