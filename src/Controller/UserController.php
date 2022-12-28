@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Service\MailService;
 use App\Form\UserreservationType;
 use App\Repository\UserRepository;
 use App\Repository\ScheduleRepository;
@@ -59,6 +60,8 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $userRepository->save($user, true);
 
+            
+
             return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -69,13 +72,19 @@ class UserController extends AbstractController
     }
 
      #[Route('/{id}/reservation', name: 'app_userreservation_edit', methods: ['GET', 'POST'])]
-    public function editreservation(Request $request, User $user, UserRepository $userRepository, ScheduleRepository $scheduleRepository): Response
+    public function editreservation(Request $request, User $user, UserRepository $userRepository, ScheduleRepository $scheduleRepository, MailService $mailService): Response
     {
         $form = $this->createForm(UserreservationType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $userRepository->save($user, true);
+            // Email J'ai injecté le MailService $mailService
+            $mailService->sendEmail(
+                $user->getEmail(),                
+                'emails/reservation.html.twig',
+                ['user'=>$user]
+            );
 
             return $this->redirectToRoute('home.index', [], Response::HTTP_SEE_OTHER);
         }
