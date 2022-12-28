@@ -16,6 +16,10 @@
 	</style>
 	<div class="jumbotron">
 
+		<p>Nombre de clients maximal:
+			{{ max_client - 2}}
+			- 2</p>
+
 
 		<h1 class="display-4">Hello, world!, Mettre les horaires sur les pages visibles!!!</h1>
 		<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
@@ -39,11 +43,20 @@
 								{{meal.price}}
 								€
 							</p>
-							<div class="text-center">
-								<a href="{{ path ('app_reservation_new') }}" class="btn btn-primary mt-4">Réserver une table</a>
 
-							</div>
+							{% if app.user %}
 
+								<div class="text-center">
+									<a href="{{ path('app_userreservation_edit', {'id': app.user.id}) }}" class="btn btn-primary mt-4">Réserver votre  table</a>
+								</div>
+							{% else %}
+								<div class="text-center">
+									<a href="{{ path ('app_reservation_new') }}" class="btn btn-primary mt-4">Réserver une table</a>
+
+								</div>
+
+
+							{% endif %}
 
 						</div>
 					</div>
@@ -55,10 +68,21 @@
 
 			{% endfor %}
 		</div>
-		<div class="text-center">
-			<a href="{{ path ('app_reservation_new') }}" class="btn btn-primary mt-4">Réserver une table</a>
+		{% if app.user %}
 
-		</div>
+
+			<div class="text-center">
+				<a href="{{ path('app_userreservation_edit', {'id': app.user.id}) }}" class="btn btn-primary mt-4">Réserver votre  table</a>
+			</div>
+		{% else %}
+			<div class="text-center">
+				<a href="{{ path ('app_reservation_new') }}" class="btn btn-primary mt-4">Réserver une table</a>
+
+			</div>
+
+
+		{% endif %}
+
 	</div>
 	<div class="mt-4 container">
 		<h1 class="text-center">Nos</h1>

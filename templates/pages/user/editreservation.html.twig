@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réservation
+{% endblock %}
+
+{% block body %}
+	<div class="mt-4 container">
+		<h1>Réservation de votre table habituelle</h1>
+		{{ include('pages/user/_form.html.twig', {'button_label': 'Réserver'}) }}
+
+		<a class="btn btn-secondary btn-lg mt-4" href="{{ path('home.index') }}">Accueil</a>
+	</div>
+
+	<div class="mt-4 container">
+		<h1 class="text-center">Nos</h1>
+		<h1 class="text-center">Horaires d'ouverture</h1>
+
+		<hr>
+		<table class="table text-center">
+
+			<thead>
+				<tr>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+
+			<tbody>
+				{% for schedule in schedules %}
+					<tr>
+						<td>Lundi</td>
+						<td>{{ schedule.monday }}</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>{{ schedule.evmonday }}</td>
+					</tr>
+					<tr>
+						<td>Mardi</td>
+						<td>{{ schedule.tuesday }}</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>{{ schedule.evtuesday }}</td>
+					</tr>
+					<tr>
+						<td>Mercredi</td>
+						<td>{{ schedule.wednesday }}</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>{{ schedule.evwednesday }}</td>
+					</tr>
+					<tr>
+						<td>Jeudi</td>
+						<td>{{ schedule.thursday }}</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>{{ schedule.evthursday }}</td>
+					</tr>
+					<tr>
+						<td>Vendredi</td>
+						<td>{{ schedule.friday }}</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>{{ schedule.evfriday }}</td>
+					</tr>
+					<tr>
+						<td>Samedi</td>
+						<td>{{ schedule.saturday }}</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>{{ schedule.evsaturday }}</td>
+					</tr>
+					<tr>
+						<td>Dimanche</td>
+						<td>{{ schedule.sunday }}</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>{{ schedule.evsunday }}</td>
+					</tr>
+				{% endfor %}
+
+			</tbody>
+		</table>
+
+	</div>
+
+
+{% endblock %}

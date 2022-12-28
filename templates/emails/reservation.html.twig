@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+
+
+		<h2></h2>
+		<h3>
+
+			{{ user.firstname }}
+			{{ user.lastname }}
+			a réservé le
+			{{ user.date ? user.date|date('d-m-Y') : '' }}
+			pour
+			{{ user.clientNumber }}
+			personnes
+			
+																																	
+												à
+			{{ user.time }}
+
+
+		</h3>
+		<p>Allergie:{{ user.isAllergy ? 'Oui' : 'Non' }}</p>
+
+		<p>Téléphone:
+			{{ user.phone }}</p>
+		<p>Cordialement</p>
+		<p>Le Quai Antique</p>
+	</body>
+</html>

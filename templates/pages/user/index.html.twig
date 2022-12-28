@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des clients
+{% endblock %}
+
+{% block body %}
+	<div class="mt-4 container">
+		<h1>Liste des clients</h1>
+
+		<table class="table">
+			<thead>
+				<tr>
+
+					<th>Email</th>
+
+
+					<th>Nom</th>
+					<th>Prénom</th>
+					<th>Allergie</th>
+					<th>Téléphone</th>
+					<th>Date</th>
+					<th>Client_number</th>
+					<th>Time</th>
+					<th>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for user in users %}
+					<tr>
+
+						<td>{{ user.email }}</td>
+
+
+						<td>{{ user.lastname }}</td>
+						<td>{{ user.firstname }}</td>
+						<td>{{ user.isAllergy ? 'Oui' : 'Non' }}</td>
+						<td>{{ user.phone }}</td>
+						<td>{{ user.date ? user.date|date('Y-m-d') : '' }}</td>
+						<td>{{ user.clientNumber }}</td>
+						<td>{{ user.time }}</td>
+						<td>
+							<a href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
+							<a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="12">Pas d'enregistrement</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+
+	</div>
+
+{% endblock %}

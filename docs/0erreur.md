@@ -45,8 +45,6 @@ public function send($id, Mailing $mailing, MailerInterface $mailer, MailingRepo
         // ]);
         $mailer->send($email);
 
-
-
 ---
 
 Impossible to access an attribute ("contact") on a null variable.
@@ -115,3 +113,9 @@ Le problème c'est que je n'avais pas mis de s à option1 lors de la création d
 Option avait bien un "menus", mais Menu avait un option1. J'ai cassé la BD et mis un options dans Menu. Le twig fonctionne!
 https://github.com/cyrisa02/Symfony_resto_arnaud/blob/main/src/Controller/MenuController.php
 https://github.com/cyrisa02/Symfony_resto_arnaud/blob/main/templates/pages/menu/indexformule.html.twig
+
+---
+
+Expected to find class X in file while importing services from resource "../src/", but it was not found after structural changes
+
+Ai changé MailService2.php en Mail2Service.php
