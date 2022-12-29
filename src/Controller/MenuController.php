@@ -44,6 +44,7 @@ class MenuController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $menuRepository->save($menu, true);
+            $this->addFlash('success', 'Votre demande a été enregistrée avec succès');
 
             return $this->redirectToRoute('app_menu_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -72,6 +73,7 @@ class MenuController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $menuRepository->save($menu, true);
+            $this->addFlash('success', 'Votre demande a été enregistrée avec succès');
 
             return $this->redirectToRoute('app_menu_index', [], Response::HTTP_SEE_OTHER);
         }

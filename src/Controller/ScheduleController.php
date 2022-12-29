@@ -30,6 +30,7 @@ class ScheduleController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $scheduleRepository->save($schedule, true);
+            $this->addFlash('success', 'Votre demande a été enregistrée avec succès');
 
             return $this->redirectToRoute('app_schedule_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -56,6 +57,7 @@ class ScheduleController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $scheduleRepository->save($schedule, true);
+            $this->addFlash('success', 'Votre demande a été enregistrée avec succès');
 
             return $this->redirectToRoute('app_schedule_index', [], Response::HTTP_SEE_OTHER);
         }

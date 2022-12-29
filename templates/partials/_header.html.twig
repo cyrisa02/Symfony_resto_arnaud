@@ -1,11 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-	<div class="container-fluid">
+	<div class="container-fluid ">
+
 		<a class="navbar-brand" href="{{ path('home.index')}}"><img src="{{ asset('assets/images/logo.png')}}" alt="Logo" style="max-width: 7rem; "></a>
 
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<div class="collapse navbar-collapse" id="navbarColor01">
+		<div class="collapse navbar-collapse " id="navbarColor01">
+
 			<ul class="navbar-nav me-auto">
 				{% if app.user %}
 					{% if is_granted('ROLE_ADMIN') %}
@@ -14,7 +16,9 @@
 							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
 							<div class="dropdown-menu">
 								<a class="dropdown-item" href="{{ path('app_meal_index')}}">Créer un plat</a>
-								<a class="dropdown-item" href="{{ path('app_mealpublic_index')}}">créer une carte de menu avec catégorie</a>
+								<a class="dropdown-item" href="{{ path('app_category_index')}}">Créer une catégorie pour un plat</a>
+
+								<a class="dropdown-item" href="{{ path('app_mealpublic_index')}}">voir la carte avec catégorie</a>
 								<a class="dropdown-item" href="{{path('app_menu_index')}}">créer des menus</a>
 								<a class="dropdown-item" href="{{path('app_option_index')}}">créer des formules pour les menus</a>
 
@@ -33,76 +37,33 @@
 					{% endif %}
 				{% endif %}
 
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Client</a>
-					<div class="dropdown-menu">
-						<a class="dropdown-item" href="#">réserver une table</a>
-						<a class="dropdown-item" href="#">sélectionner un horaire</a>
-						<a class="dropdown-item" href="#">mentionner des allergies</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Separated link</a>
-					</div>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Visiteur</a>
-					<div class="dropdown-menu">
-						<a class="dropdown-item" href="#">Réserver une table</a>
-						<a class="dropdown-item" href="#">sélectionner un horaire</a>
-						<a class="dropdown-item" href="#">mentionner les allergies</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Créer un compte</a>
-					</div>
-				</li>
+
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+					{% if app.user %}
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('app_user_show',{'id':app.user.id})}}">Mon compte</a>
+
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('app_logout') }}">Me déconnecter</a>
+						</li>
+					{% else %}
 
 
-				<li class="nav-item">
-					<a class="nav-link active" href="#">Home
-						<span class="visually-hidden">(current)</span>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Features</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Pricing</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">About</a>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-					<div class="dropdown-menu">
-						<a class="dropdown-item" href="#">Action</a>
-						<a class="dropdown-item" href="#">Another action</a>
-						<a class="dropdown-item" href="#">Something else here</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Separated link</a>
-					</div>
-				</li>
-			</ul>
-			<form class="d-flex">
-				<input class="form-control me-sm-2" type="text" placeholder="Search">
-				<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-			</form>
-			<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-				{% if app.user %}
-					<li class="nav-item">
-						<a class="nav-link" href="#">Mon compte</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('app_logout') }}">Me déconnecter</a>
-					</li>
-				{% else %}
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('app_register') }}">M'inscrire</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('app_login') }}">Me Connecter</a>
-					</li>
-				{% endif %}
-			</ul>
+						<li class="nav-item ">
+
+							<a class="nav-link" href="{{ path('app_register') }}">M'inscrire</a>
+						</li>
+						<li class="nav-item ">
+
+							<a class="nav-link" href="{{ path('app_login') }}">Me Connecter</a>
+						</li>
 
 
+					{% endif %}
+				</ul>
+
+
+			</div>
 		</div>
-	</div>
-</nav>
+	</nav>

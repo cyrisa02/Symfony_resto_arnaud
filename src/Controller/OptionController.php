@@ -33,6 +33,7 @@ class OptionController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $optionRepository->save($option, true);
+            $this->addFlash('success', 'Votre demande a été enregistrée avec succès');
 
             return $this->redirectToRoute('app_option_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -61,6 +62,7 @@ class OptionController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $optionRepository->save($option, true);
+            $this->addFlash('success', 'Votre demande a été enregistrée avec succès');
 
             return $this->redirectToRoute('app_option_index', [], Response::HTTP_SEE_OTHER);
         }

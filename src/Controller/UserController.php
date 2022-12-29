@@ -46,7 +46,7 @@ class UserController extends AbstractController
         ]);
     }
 
-    #[IsGranted('ROLE_ADMIN')]
+    
     #[Route('/{id}', name: 'app_user_show', methods: ['GET'])]
     public function show(User $user): Response
     {
@@ -64,7 +64,7 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $userRepository->save($user, true);
-
+            $this->addFlash('success', 'Votre demande a été enregistrée avec succès');
             
 
             return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
@@ -90,7 +90,7 @@ class UserController extends AbstractController
                 'emails/reservation.html.twig',
                 ['user'=>$user]
             );
-
+            $this->addFlash('success', 'Votre demande a été enregistrée avec succès');
             return $this->redirectToRoute('home.index', [], Response::HTTP_SEE_OTHER);
         }
 
