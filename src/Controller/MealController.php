@@ -52,6 +52,7 @@ class MealController extends AbstractController
             $meal->setPicture($imageFileName);
         }
             $mealRepository->save($meal, true);
+            $this->addFlash('success', 'Votre demande a été enregistrée avec succès');
 
             return $this->redirectToRoute('app_meal_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -87,6 +88,7 @@ class MealController extends AbstractController
         }
             
             $mealRepository->save($meal, true);
+            $this->addFlash('success', 'Votre demande a été enregistrée avec succès');
 
             return $this->redirectToRoute('app_meal_index', [], Response::HTTP_SEE_OTHER);
         }

@@ -40,7 +40,7 @@ class ReservationController extends AbstractController
                 'emails/reservationvisitor.html.twig',
                 ['reservation'=>$reservation]
             );
-
+        $this->addFlash('success', 'Votre demande a été enregistrée avec succès');
             return $this->redirectToRoute('home.index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -69,6 +69,7 @@ class ReservationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $reservationRepository->save($reservation, true);
+            $this->addFlash('success', 'Votre demande a été enregistrée avec succès');
 
             return $this->redirectToRoute('home.index', [], Response::HTTP_SEE_OTHER);
         }

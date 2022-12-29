@@ -54,6 +54,7 @@ class MealType extends AbstractType
             ])
             ->add('picture', FileType::class, [
                 'mapped' => false,
+                'required' => false,
                 'label' => 'Merci de mettre une photo en jpeg ou png',
                      'constraints' => [
                     new File([

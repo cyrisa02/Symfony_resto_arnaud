@@ -14,24 +14,45 @@
 			opacity: 1
 		}
 	</style>
-	<div class="jumbotron">
-
-		<p>Nombre de clients maximal:
-			{{ max_client - 2}}
-			- 2</p>
+	<div
+		class="jumbotron">
 
 
-		<h1 class="display-4">Hello, world!, Mettre les horaires sur les pages visibles!!!</h1>
-		<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-		<hr class="my-4">
-		<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-		<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+		{# <p>Nombre de clients maximal:
+															{{ max_client - 2}}
+															- 2</p> #}
+		<div class="title mt-4" style="background-image:url('{{asset('assets/images/resto.jpg' )}}'); background-position:center center; background-size: cover;;
+																																																																																																																																																																																																																														background-repeat: no-repeat; ">
+
+
+			<h1 class="display-4 text-light">Le Quai Antique</h1>
+
+		</div>
+		<div class="">
+			<p class="lead ">Le Chef Arnaud Michant aime passionnément les produits et producteurs de la Savoie. C'est pourquoi il a décidé d'ouvrir son troisième restaurant dans notre région.</p>
+			<hr class="my-4">
+			<p>Le Quai Antique propose une expérience gastronomique à travers une cuisine sans artifice.</p>
+			<a class="btn btn-primary btn-lg" href="{{ path ('readme') }}" role="button">En savoir plus sur ce projet</a>
+			<div class="button mt-4 text-center">
+				<a class="btn btn-primary btn-lg" href="{{ path ('app_mealpublic_index') }}" role="button">Notre carte</a>
+				<a class="btn btn-primary btn-lg ms-3" href="{{ path ('app_menuformule_index') }}" role="button">Nos menus</a>
+			</div>
+		</div>
+
+		<div class="section-title mt-4 text-center">
+			<h2>Pourquoi choisir
+				<span>Notre Restaurant</span>
+			</h2>
+			<p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+		</div>
+
 
 		<div class="row mt-4">
+			<h2 class="text-center">Consultez notre carte</h2>
 			{% for meal in meals |reverse %}
 				<div class="col-md-4">
-					<div class="card mt-4">
-						<img src="{{ asset('uploads/') }}{{ meal.picture }}" alt="{{ meal.title }} " style="max-width: 10rem;">
+					<div class="card mt-4 text-center">
+						<img src="{{ asset('uploads/') }}{{ meal.picture }}" alt="{{ meal.title }} " style="max-width: 10rem;" class="mt-2 ms-2">
 
 						<div class="card-body">
 							<h5 class="card-title">{{meal.title}}</h5>
@@ -160,6 +181,169 @@
 
 			</tbody>
 		</table>
-
 	</div>
-{% endblock %}
+	<section id="chefs" class="chefs mt-4">
+		<div class="container">
+
+			<div class="section-title">
+				<h2>Nos Professionels
+					<span>Chefs</span>
+				</h2>
+				<p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+			</div>
+
+			<div class="row">
+
+				<div class="col-lg-4 col-md-6">
+					<div class="member">
+						<div class="pic"><img src="assets/img/chefs/chefs-1.jpg" class="img-fluid" alt="chef"></div>
+						<div class="member-info">
+							<h4>Walter White</h4>
+							<span>Chef</span>
+							<div class="social">
+								<i class="fa-brands fa-facebook-messenger">
+									<a href="/"></a>
+								</i>
+
+								<i class="fa-brands fa-facebook">
+									<a href="/"></a>
+								</i>
+
+								<i class="fa-brands fa-instagram-square">
+									<a href="/"></a>
+								</i>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="col-lg-4 col-md-6">
+					<div class="member">
+						<div class="pic"><img src="assets/img/chefs/chefs-2.jpg" class="img-fluid" alt="chef"></div>
+						<div class="member-info">
+							<h4>Sarah Johnson</h4>
+							<span>Patissier</span>
+							<div class="social">
+								<i class="fa-brands fa-facebook-messenger">
+									<a href="/"></a>
+								</i>
+
+								<i class="fa-brands fa-facebook">
+									<a href="/"></a>
+								</i>
+
+								<i class="fa-brands fa-instagram-square">
+									<a href="/"></a>
+								</i>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-4 col-md-6">
+					<div class="member">
+						<div class="pic"><img src="assets/img/chefs/chefs-3.jpg" class="img-fluid" alt="chef"></div>
+						<div class="member-info">
+							<h4>William Anderson</h4>
+							<span>Cuisinier</span>
+							<div class="social">
+								<i class="fa-brands fa-facebook-messenger">
+									<a href="/"></a>
+								</i>
+
+								<i class="fa-brands fa-facebook">
+									<a href="/"></a>
+								</i>
+
+								<i class="fa-brands fa-instagram-square">
+									<a href="/"></a>
+								</i>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</section>
+		<!-- End Chefs Section -->
+
+		<!-- testimonials section Start -->
+		<section class="testimonials bg-white py-5" id="testimonials">
+			<div class="container-lg py-4">
+				<div class="row justify-content-center">
+					<div class="col-lg-8 ">
+						<div class="section-title text-center">
+							<h2 class="fw-bold mb-5">Témoignages</h2>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div
+						class="col-lg-8 col-xl-7">
+						<!-- testi item start -->
+						<div class="testi-item bg-white shadow-sm rounded p-4 mb-5">
+							<div class="testi-author-info d-flex align-items-center">
+								<img src="{{ asset('assets/images/testimonials-2.jpg')}}" class="img-thumbnail rounded-circle" alt="auteur" style="max-width: 10rem;">
+
+
+								<div class="author ms-3">
+									<h3 class="fs-6 mb-1">Michèle Gramont
+									</h3>
+									<p class="text-muted m-0">Commerciale</p>
+								</div>
+							</div>
+							<p class="text-muted mt-3">Michèle m'a fait confiance pour la réalisation de son site vitrine que j'ai réalisé avec Wordpress.</p>
+							<p class=" mt-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat eius blanditiis, possimus in eligendi veniam dolor doloremque maxime animi sunt quo enim ab et illum! Asperiores omnis blanditiis voluptatibus itaque!</p>
+							<div class="rating text-secondary">
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+							</div>
+						</div>
+						<!-- testi item end -->
+						<!-- testi item start -->
+						<div class="testi-item bg-white shadow-sm rounded p-4 mb-5">
+
+							<div class="testi-author-info d-flex align-items-center">
+								<img src="{{ asset('assets/images/testimonials-1.jpg')}}" class="img-thumbnail rounded-circle" alt="auteur" style="max-width: 7rem;">
+
+								<div class="author ms-3">
+									<h3 class="fs-6 mb-1">Nicolas Dessus
+									</h3>
+									<p class="text-muted m-0">Chef de projet</p>
+								</div>
+							</div>
+							<p class="text-muted mt-3">Afin de faciliter la gestion de leurs membres, l'ASDEC m'a fait confiance pour leur application de gestion des ressources humaines.</p>
+							<p class=" mt-3">
+
+								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat eius blanditiis, possimus in eligendi veniam dolor doloremque maxime animi sunt quo enim ab et illum! Asperiores omnis blanditiis voluptatibus itaque!</p>
+
+							<div class="rating text-secondary">
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+							</div>
+						</div>
+						<!-- testi item end -->
+
+
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!-- testimonials section End -->
+
+
+	{% endblock %}

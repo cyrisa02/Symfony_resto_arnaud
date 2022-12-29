@@ -7,7 +7,7 @@ J'utilise le terminal et Fillezilla(FTP)
 2/ Vérifier que vous ayez un .htaccess dans le repertoire public sinon
 composer require symfony/apache-pack + YES
 
-3/ Sur la plateforme IONOS
+3/ Sur la plateforme IONOS voir robots.txt
 Créer un sous-domaine, donner un nom
 Espace Web /Gérer domaines/Portefeuille / Sous-domaines / Quick Links / Créer un nouveau sous-domaine
 

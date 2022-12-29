@@ -4,64 +4,48 @@
 {% endblock %}
 
 {% block body %}
-	<div class="mt-4 container">
-		<h1>Mon compte</h1>
+	{% if app.user %}
 
-		<table class="table">
-			<tbody>
-				<tr>
-					<th>Id</th>
-					<td>{{ user.id }}</td>
-				</tr>
-				<tr>
-					<th>Email</th>
-					<td>{{ user.email }}</td>
-				</tr>
-				<tr>
-					<th>Roles</th>
-					<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-				</tr>
-				<tr>
-					<th>Password</th>
-					<td>{{ user.password }}</td>
-				</tr>
-				<tr>
-					<th>Lastname</th>
-					<td>{{ user.lastname }}</td>
-				</tr>
-				<tr>
-					<th>Firstname</th>
-					<td>{{ user.firstname }}</td>
-				</tr>
-				<tr>
-					<th>IsAllergy</th>
-					<td>{{ user.isAllergy ? 'Yes' : 'No' }}</td>
-				</tr>
-				<tr>
-					<th>Phone</th>
-					<td>{{ user.phone }}</td>
-				</tr>
-				<tr>
-					<th>Date</th>
-					<td>{{ user.date ? user.date|date('Y-m-d') : '' }}</td>
-				</tr>
-				<tr>
-					<th>Client_number</th>
-					<td>{{ user.clientNumber }}</td>
-				</tr>
-				<tr>
-					<th>Time</th>
-					<td>{{ user.time }}</td>
-				</tr>
-			</tbody>
-		</table>
+		<div class="mt-4 container">
+			<h1>Mon compte</h1>
 
-		<a class="btn btn-secondary btn-lg mt-4" href="{{ path('home.index') }}">Accueil</a>
+			<table class="table">
+				<tbody>
+
+					<tr>
+						<th>Email</th>
+						<td>{{ user.email }}</td>
+					</tr>
 
 
-		<a class="btn btn-primary btn-lg mt-4" href="{{ path('app_user_edit', {'id': user.id}) }}">Modifier</a>
+					<tr>
+						<th>Nom</th>
+						<td>{{ user.lastname }}</td>
+					</tr>
+					<tr>
+						<th>Prénom</th>
+						<td>{{ user.firstname }}</td>
+					</tr>
+					<tr>
+						<th>Présence d'allergie</th>
+						<td>{{ user.isAllergy ? 'Oui' : 'Non' }}</td>
+					</tr>
+					<tr>
+						<th>Téléphone</th>
+						<td>{{ user.phone }}</td>
+					</tr>
+					<tr>
+						<th>Date de votre dernière réservation</th>
+						<td>{{ user.date ? user.date|date('Y-m-d') : '' }}</td>
+					</tr>
 
 
-		{{ include('pages/user/_delete_form.html.twig') }}</div>
+				</tbody>
+			</table>
 
+			<a class="btn btn-secondary btn-lg mt-4" href="{{ path('home.index') }}">Accueil</a>
+
+
+		</div>
+	{% endif %}
 {% endblock %}

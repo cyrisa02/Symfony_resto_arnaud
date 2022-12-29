@@ -19,8 +19,8 @@
 					<th>Allergie</th>
 					<th>Téléphone</th>
 					<th>Date</th>
-					<th>Client_number</th>
-					<th>Time</th>
+					<th>Nbre de clients</th>
+					<th>Heure</th>
 					<th>actions</th>
 				</tr>
 			</thead>
@@ -39,8 +39,8 @@
 						<td>{{ user.clientNumber }}</td>
 						<td>{{ user.time }}</td>
 						<td>
-							<a href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
-							<a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
+							<a href="{{ path('app_user_show', {'id': user.id}) }}">voir</a>
+							<a href="{{ path('app_user_edit', {'id': user.id}) }}">modifier</a>
 						</td>
 					</tr>
 				{% else %}
