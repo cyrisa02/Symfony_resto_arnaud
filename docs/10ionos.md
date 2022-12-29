@@ -11,6 +11,8 @@ composer require symfony/apache-pack + YES
 Créer un sous-domaine, donner un nom
 Espace Web /Gérer domaines/Portefeuille / Sous-domaines / Quick Links / Créer un nouveau sous-domaine
 
+Faire les commits sur github
+
 4/Créer une BD sur IONOS
 PlanetBody/Ecoit/TRT/
 Mot de passe: ojedkfnsdqs
