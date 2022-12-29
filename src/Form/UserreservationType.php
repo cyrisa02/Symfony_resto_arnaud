@@ -30,8 +30,8 @@ class UserreservationType extends AbstractType
             
             ->add('date', DateType::class, [
                 'placeholder' => [
-        'year' => 'Année',  'day' => 'Jour','month' => 'Mois'
-    ],
+                'year' => 'Année',  'day' => 'Jour','month' => 'Mois'
+                ],
                 
                 'label' => 'Date de la réservation',
                 'label_attr' => [

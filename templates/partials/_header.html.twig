@@ -7,26 +7,32 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarColor01">
 			<ul class="navbar-nav me-auto">
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
-					<div class="dropdown-menu">
-						<a class="dropdown-item" href="{{ path('app_meal_index')}}">Créer un plat</a>
-						<a class="dropdown-item" href="{{ path('app_mealpublic_index')}}">créer une carte de menu avec catégorie</a>
-						<a class="dropdown-item" href="{{path('app_menu_index')}}">créer des menus</a>
-						<a class="dropdown-item" href="{{path('app_option_index')}}">créer des formules pour les menus</a>
+				{% if app.user %}
+					{% if is_granted('ROLE_ADMIN') %}
+
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="{{ path('app_meal_index')}}">Créer un plat</a>
+								<a class="dropdown-item" href="{{ path('app_mealpublic_index')}}">créer une carte de menu avec catégorie</a>
+								<a class="dropdown-item" href="{{path('app_menu_index')}}">créer des menus</a>
+								<a class="dropdown-item" href="{{path('app_option_index')}}">créer des formules pour les menus</a>
 
 
-						<a class="dropdown-item" href="{{path('app_menuformule_index')}}">voir les menus avec les formules</a>
+								<a class="dropdown-item" href="{{path('app_menuformule_index')}}">voir les menus avec les formules</a>
 
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="{{path ('app_schedule_index')}}">Créer des horaires du midi</a>
-						<a class="dropdown-item" href="{{path ('app_scheduleevening_index')}}">Créer des horaires du soir</a>
-						<a class="dropdown-item" href="{{path ('app_reservation_index')}}">Gérer les réservations</a>
-						<a class="dropdown-item" href="{{path ('app_user_index')}}">Gérer les clients</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="{{path ('app_schedule_index')}}">Créer des horaires du midi</a>
+								<a class="dropdown-item" href="{{path ('app_scheduleevening_index')}}">Créer des horaires du soir</a>
+								<a class="dropdown-item" href="{{path ('app_reservation_index')}}">Gérer les réservations</a>
+								<a class="dropdown-item" href="{{path ('app_user_index')}}">Gérer les clients</a>
 
 
-					</div>
-				</li>
+							</div>
+						</li>
+					{% endif %}
+				{% endif %}
+
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Client</a>
 					<div class="dropdown-menu">
