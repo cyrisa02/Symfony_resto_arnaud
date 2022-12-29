@@ -118,4 +118,7 @@ https://github.com/cyrisa02/Symfony_resto_arnaud/blob/main/templates/pages/menu/
 
 Expected to find class X in file while importing services from resource "../src/", but it was not found after structural changes
 
-Ai changé MailService2.php en Mail2Service.php
+Ai changé MailService2.php en Mail2Service.php c'était pas ça
+
+vider le cash
+composer dump-autoload
